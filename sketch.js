@@ -1,4 +1,5 @@
 let mode = 0;
+await delay(5000);
 song = new Audio();
 song.src = "https://robvbob.butterlabs.app/cero.mp3"; 
 song.loop = true;
