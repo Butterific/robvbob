@@ -1,21 +1,19 @@
-let mode = 0;
-await delay(5000);
-song = new Audio();
-song.src = "https://robvbob.butterlabs.app/cero.mp3"; 
-song.loop = true;
-song.play();
-song.volume = 0.5;
 let score = 0;
 let counter = 0;
+let bgm;
+let musicstate = 0;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rob = new Sprite(robimg, 0, 0, 0.1, 0.1);
   bob = new Sprite(bobimg, 0, 0, 0.1, 0.1);
   textFont('Comic Sans MS')
+  userStartAudio();
+  bgm.loop();
 }
 function preload() {
   robimg = loadImage("robplush.png");
   bobimg = loadImage("bobplush.png");
+  bgm = loadSound('cero.mp3')
 }
 
 function draw() {
@@ -27,6 +25,11 @@ function draw() {
   checktouching();
   bob.layer = 0; 
   text("make sure that rob is overlaping exactly over bob inorder to count for score", 100, 700)
+  if (musicstate == 0)
+  {
+    bgm.play();
+    musicstate = 1;
+  }
 }
 function updatesprite(x, y) {
   rob.x = x;
