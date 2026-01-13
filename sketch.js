@@ -1,6 +1,6 @@
 let mode = 0;
 song = new Audio();
-song.src = "cero.mp3"; 
+song.src = "https://robvbob.butterlabs.app/cero.mp3"; 
 song.loop = true;
 song.play();
 song.volume = 0.5;
